@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Rede Social - Home</title>
+    <link rel="stylesheet" type="text/css" href="/styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap">
+
+</head>
+<body>
+
+<!-- Cabeçalho imagem-->
+<header>
+    <img th:src="@{/img/logo_redesocial.png}" alt="Logo Rede Social">
+</header>
+
+<h1>Bem-vindo, <span th:text="${usuarioLogado.username}"></span>!</h1>
+
+
+<!-- Exibir postagens do usuário logado -->
+<div th:if="${usuarioLogado}">
+    <h2>Publicação</h2>
+    <ul>
+        <li th:each="postagem : ${postagens}">
+            <span th:text="${postagem.autor.username}"></span> -
+            <span th:text="${postagem.texto}"></span> -
+            <span th:text="${#dates.format(postagem.data, 'dd/MM/yyyy')}"></span>
+        </li>
+    </ul>
+
+    <!-- Fazer postagem -->
+    <form action="/fazer-postagem" method="post">
+        <input type="hidden" name="usuarioLogadoId" th:value="${usuarioLogado.id}"/>
+        <label for="postagem-texto">Publique algo:</label>
+        <input type="text" id="postagem-texto" name="texto" required>
+        <br>
+        <button type="submit">Postar</button>
+    </form>
+
+</div>
+
+<div th:if="${mensagem}" class="mensagem">
+    <p th:utext="${mensagem}"></p>
+</div>
+
+<!-- Botões -->
+<div class="button-container">
+    <br>
+    <form action="/redesocial/postagens" method="get" class="button-form">
+        <button type="submit">Exibir postagens</button>
+    </form>
+
+    <form action="/redesocial/logout" method="post" class="button-form">
+        <button type="submit">Fazer logout</button>
+    </form>
+</div>
+
+</body>
+</html>

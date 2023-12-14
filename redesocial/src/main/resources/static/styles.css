@@ -1,0 +1,110 @@
+body {
+    font-family: 'Oswald', sans-serif;
+    font-size: 21px;
+    margin: 0;
+    padding: 20px 0 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: aliceblue /* Definir a cor do background */
+}
+
+header {
+    color: white;
+    text-align: center;
+    padding: 10px;
+    width: 60%;
+    background-color: aliceblue; /* Definir a cor do background */
+}
+
+header img {
+    max-width: 60%;
+    height: auto;
+    margin-top: -100px;
+}
+
+.logo-x {
+    width: 150px;
+    height: 150px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h1 {
+    text-align: center;
+    margin-top: -100px;
+}
+
+form {
+    text-align: center;
+    margin-top: -30px;
+    border-radius: 10px;
+}
+
+input[type="text"],
+input[type="password"],
+button {
+    border-radius: 5px;
+}
+
+button {
+    --bd-violet-bg: #77A7FF;
+    --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+
+    --bs-btn-font-weight: 600;
+    --bs-btn-active-color: #ffffff;
+    --bs-btn-bg: #77A7FF;
+    --bs-btn-border-color: var(--bd-violet-bg);
+    --bs-btn-hover-color: #ffffff;
+    --bs-btn-hover-bg: #6528e0;
+    --bs-btn-hover-border-color: #6528e0;
+    --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+    --bs-btn-active-color: var(--bs-btn-hover-color);
+    --bs-btn-active-bg: #5a23c8;
+    --bs-btn-active-border-color: #5a23c8;
+
+    background-color: var(--bs-btn-bg);
+    border: 1px solid var(--bs-btn-border-color);
+    color: var(--bs-btn-color);
+    font-weight: var(--bs-btn-font-weight);
+    padding: 0.375rem 0.75rem;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+button:hover {
+    color: var(--bs-btn-hover-color);
+    background-color: var(--bs-btn-hover-bg);
+    border-color: var(--bs-btn-hover-border-color);
+}
+
+button:active {
+    color: var(--bs-btn-active-color);
+    background-color: var(--bs-btn-active-bg);
+    border-color: var(--bs-btn-active-border-color);
+}
+
+.button-container {
+    text-align: center; /* Centraliza os botões horizontalmente */
+    margin-top: -2%; /* Posiciona os botões */
+    margin-bottom: 25px; /* Espaço abaixo dos botões */
+}
+
+.button-form {
+    display: inline-block;
+    margin-right: 10px; /* Adiciona um espaço entre os botões */
+}
+
+#postagem-texto {
+    width: 300px; /* Tamanho do input pra escrever postagem */
+    height: 55px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+

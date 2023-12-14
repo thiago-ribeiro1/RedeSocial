@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap">
+
+</head>
+<body>
+
+<!-- Cabeçalho imagem-->
+<header>
+    <img th:src="@{/img/logo_redesocial.png}" alt="Logo Rede Social">
+</header>
+
+<h2>Lista de Postagens</h2>
+<link rel="stylesheet" type="text/css" href="/styles.css">
+
+
+<div th:if="${mensagem}" th:utext="${mensagem}"></div>
+
+<div th:each="postagem : ${postagens}">
+    <p th:text="${postagem.autor.username} + ': ' + ${postagem.texto}"></p>
+</div>
+</body>
+</html>
