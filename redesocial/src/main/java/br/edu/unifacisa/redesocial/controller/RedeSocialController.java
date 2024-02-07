@@ -23,19 +23,24 @@ public class RedeSocialController {
         this.redeSocialService = redeSocialService;
     }
 
+    @GetMapping("/")
+    public String redirectToContext() {
+        return "redirect:/redesocial";
+    }
+
     @GetMapping("/redesocial") // Acessar em localhost:8080/redesocial
     public String index() {
         return "redesocial";
     }
 
-    @PostMapping("/criar-conta")
+    @PostMapping("/login")
     public String criarConta(@RequestParam String username, @RequestParam String password, Model model) {
         redeSocialService.criarConta(username, password);
         model.addAttribute("mensagem", "Conta criada com sucesso!");
         return "login";
     }
 
-    @PostMapping("/fazer-login")
+    @PostMapping("/home-page")
     public String fazerLogin(@RequestParam String username, @RequestParam String password, Model model) {
         Usuario usuarioLogado = redeSocialService.fazerLogin(username, password);
         if (usuarioLogado != null) { // Verifica se o usuário foi autenticado
@@ -48,7 +53,7 @@ public class RedeSocialController {
         }
     }
 
-    @PostMapping("/fazer-postagem")
+    @PostMapping("/timeline")
     public String fazerPostagem(@RequestParam String texto, @RequestParam Long usuarioLogadoId, Model model) {
         Usuario usuarioLogado = redeSocialService.findUsuarioById(usuarioLogadoId);
         redeSocialService.fazerPostagem(usuarioLogado, texto);
